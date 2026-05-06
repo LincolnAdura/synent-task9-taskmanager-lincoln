@@ -56,8 +56,8 @@ synent-task9-taskmanager-lincoln/
 │   ├── dashboard.html
 │   └── add_task.html
 └── static/
-└── style.css
-
+    └── style.css
+    
 ## Tools Used
 - Python 3
 - Flask Framework
