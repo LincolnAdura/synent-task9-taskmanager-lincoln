@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="auth-box">
+        <div class="auth-header">
+            {% if task %}
+                <h1>✏️ Update Task</h1>
+                <p>Update your task details below.</p>
+            {% else %}
+                <h1>➕ Add New Task</h1>
+                <p>Fill in the details to create a new task.</p>
+            {% endif %}
+        </div>
+
+        <form method="POST">
+            <div class="form-group">
+                <label for="title">📌 Task Title</label>
+                <input type="text" id="title" name="title"
+                       placeholder="Enter task title"
+                       value="{{ task.title if task else '' }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="description">📝 Description</label>
+                <textarea id="description" name="description"
+                          placeholder="Enter task description (optional)"
+                          rows="3">{{ task.description if task else '' }}</textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="priority">⚡ Priority</label>
+                <select id="priority" name="priority">
+                    <option value="High" {% if task and task.priority == "High" %}selected{% endif %}>High</option>
+                    <option value="Medium" {% if not task or task.priority == "Medium" %}selected{% endif %}>Medium</option>
+                    <option value="Low" {% if task and task.priority == "Low" %}selected{% endif %}>Low</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="status">📊 Status</label>
+                <select id="status" name="status">
+                    <option value="Pending" {% if not task or task.status == "Pending" %}selected{% endif %}>Pending</option>
+                    <option value="In Progress" {% if task and task.status == "In Progress" %}selected{% endif %}>In Progress</option>
+                    <option value="Completed" {% if task and task.status == "Completed" %}selected{% endif %}>Completed</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="due_date">📅 Due Date</label>
+                <input type="date" id="due_date" name="due_date"
+                       value="{{ task.due_date if task else '' }}">
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                {% if task %}Update Task{% else %}Add Task{% endif %}
+            </button>
+
+            <a href="{{ url_for('dashboard') }}" class="btn btn-cancel">
+                Cancel
+            </a>
+        </form>
+    </div>
+</div>
+{% endblock %}
