@@ -42,7 +42,7 @@ Open your browser and go to:
 [Synent Task Manager-LincolnAdura](http://127.0.0.1:5000/)
 
 ## Demo Video
-[Click here to watch the demo](paste-your-video-link-here)
+[Click here to watch the demo](https://www.linkedin.com/posts/lincoln-adura-9b41582a2_internship-python-flask-ugcPost-7458829230320025600-akWs?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEj-PJgB4bj8FKDCrrZe1jolwLJuoSNjIw4)
 
 ## Project Structure
 synent-task9-taskmanager-lincoln/
